@@ -13,7 +13,7 @@
             box-sizing: border-box;
         }
 body {
-    background-image: url("6.png");
+    background-image: url("./assets/6.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -79,7 +79,7 @@ body {
             height: 120px;
             margin: 0 auto;
             position: relative;
-            background-image: url('hm.png');
+            background-image: url("./assets/hm.png");
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -334,116 +334,132 @@ body {
     </div>
 
     <script>
-        let currentRule = 0;
-        const rules = [
-            {
-                id: 'rule1',
-                check: (password) => !/[aeiouAEIOU]/.test(password),
-                description: 'No vowels'
-            },
-            {
-                id: 'rule2',
-                check: (password) => {
-                    if (password.length < 2) return false;
-                    const symbols = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
-                    return symbols.test(password[0]) && symbols.test(password[password.length - 1]);
-                },
-                description: 'Start and end with symbol'
-            },
-            {
-                id: 'rule3',
-                check: (password) => {
-                    const chars = password.split('');
-                    return chars.length === new Set(chars).size;
-                },
-                description: 'No repeating characters'
-            },
-            {
-                id: 'rule4',
-                check: (password) => {
-                    const capitals = [];
-                    for (let i = 0; i < password.length; i++) {
-                        if (/[A-Z]/.test(password[i])) {
-                            capitals.push(i);
-                        }
-                    }
-                    if (capitals.length < 2) return false;
-                    
-                    for (let i = 0; i < capitals.length - 1; i++) {
-                        if (capitals[i + 1] - capitals[i] === 1) {
-                            return false;
-                        }
-                    }
-                    return true;
-                },
-                description: '2+ capitals not adjacent'
-            },
-            {
-                id: 'rule5',
-                check: (password) => password.length === 15,
-                description: 'Exactly 15 characters'
+    let currentRule = 0;
+    const rules = [
+      {
+        id: 'rule1',
+        check: (password) => !/[aeiouAEIOU]/.test(password),
+        description: 'No vowels'
+      },
+      {
+        id: 'rule2',
+        check: (password) => {
+          if (password.length < 2) return false;
+          const symbols = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+          return symbols.test(password[0]) && symbols.test(password[password.length - 1]);
+        },
+        description: 'Start and end with symbol'
+      },
+      {
+        id: 'rule3',
+        check: (password) => {
+          const chars = password.split('');
+          return chars.length === new Set(chars).size;
+        },
+        description: 'No repeating characters'
+      },
+      {
+        id: 'rule4',
+        check: (password) => {
+          const capitals = [];
+          for (let i = 0; i < password.length; i++) {
+            if (/[A-Z]/.test(password[i])) {
+              capitals.push(i);
             }
-        ];
+          }
+          if (capitals.length < 2) return false;
+          for (let i = 0; i < capitals.length - 1; i++) {
+            if (capitals[i + 1] - capitals[i] === 1) {
+              return false;
+            }
+          }
+          return true;
+        },
+        description: '2+ capitals not adjacent'
+      },
+      {
+        id: 'rule5',
+        check: (password) => password.length === 15,
+        description: 'Exactly 15 characters'
+      }
+    ];
 
-        function showNextRule() {
-            if (currentRule < rules.length) {
-                const ruleElement = document.getElementById(rules[currentRule].id);
-                ruleElement.classList.add('visible');
-                currentRule++;
-            }
+    function showNextRule() {
+      if (currentRule < rules.length) {
+        const ruleElement = document.getElementById(rules[currentRule].id);
+        ruleElement.classList.add('visible');
+        currentRule++;
+      }
+    }
+
+    function checkPassword() {
+      const password = document.getElementById('passwordInput').value;
+      let allPassed = true;
+      let visibleRules = 0;
+
+      rules.forEach(rule => {
+        const element = document.getElementById(rule.id);
+        element.classList.remove('completed', 'failed');
+      });
+
+      for (let i = 0; i < rules.length; i++) {
+        const rule = rules[i];
+        const element = document.getElementById(rule.id);
+        
+        if (i === 0 || (i > 0 && rules[i - 1].check(password))) {
+          if (!element.classList.contains('visible')) {
+            element.classList.add('visible');
+            visibleRules = i + 1;
+            break;
+          }
+          visibleRules = i + 1;
+
+          if (rule.check(password)) {
+            element.classList.add('completed');
+          } else {
+            element.classList.add('failed');
+            allPassed = false;
+            break;
+          }
+        } else {
+          allPassed = false;
+          break;
         }
+      }
 
-        function checkPassword() {
-            const password = document.getElementById('passwordInput').value;
-            let allPassed = true;
-            let visibleRules = 0;
+      const successMessage = document.getElementById('successMessage');
+      const allRulesVisible = visibleRules === rules.length;
 
-            rules.forEach(rule => {
-                const element = document.getElementById(rule.id);
-                element.classList.remove('completed', 'failed');
-            });
+      if (allPassed) {
+        successMessage.classList.add('visible');
+      } else {
+        successMessage.classList.remove('visible');
+      }
+    }
 
-            for (let i = 0; i < rules.length; i++) {
-                const rule = rules[i];
-                const element = document.getElementById(rule.id);
-                
-                if (i === 0 || (i > 0 && rules[i-1].check(password))) {
-                    if (!element.classList.contains('visible')) {
-                        element.classList.add('visible');
-                        visibleRules = i + 1;
-                        break;
-                    }
-                    visibleRules = i + 1;
-                    
-                    if (rule.check(password)) {
-                        element.classList.add('completed');
-                    } else {
-                        element.classList.add('failed');
-                        allPassed = false;
-                        break; 
-                    }
-                } else {
-                    allPassed = false;
-                    break;
-                }
-            }
+    function proceedToMain() {
+      const password = document.getElementById('passwordInput').value;
+      let isValid = rules.every(rule => rule.check(password));
 
-            const successMessage = document.getElementById('successMessage');
-            if (visibleRules === rules.length && allPassed) {
-                successMessage.classList.add('visible');
-            } else {
-                successMessage.classList.remove('visible');
-            }
-        }
+      if (isValid) {
+        window.location.href = "index.html";         
+      } else {
+        alert("You must fulfill all conditions to enter the spaceship."); 
+      }
+    }
+    document.getElementById('passwordInput').addEventListener('input', checkPassword);
+    showNextRule();
 
-        document.getElementById('passwordInput').addEventListener('input', checkPassword);
-
-        showNextRule();
-
+    
         function skip(){
             let skip = document.getElementById("skip")
             skip.textContent = "No patient detected, Humanity confirmed !"
+               setTimeout(() => {
+        window.location.href = "index.html";
+    }, 2000);
         }
-    </script>
+        
+  </script>
+
 </body>
 </html>
