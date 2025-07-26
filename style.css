@@ -1,0 +1,182 @@
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .login-container {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .login-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    color: violet;
+  }
+
+  .password-container {
+    position: relative;
+    margin-bottom: 15px;
+  }
+
+  input[type="password"] {
+    width: 80%;
+    padding: 12px 45px 12px 15px;
+    border: none;
+    border-radius: 30px;
+    background-color: #2a2b5a;
+    color: red;
+    font-size: 1rem;
+    outline: none;
+  }
+  
+  
+  input[type="password"], input[type="text"] {
+  width: 100%;
+  padding: 1rem 3.5rem 1rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 25px;
+  border: 3px solid #8b5cf6;
+  outline: none;
+  background-color: white;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+input[type="password"]:focus, input[type="text"]:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 5px rgba(139, 92, 246, 0.15);
+  transform: scale(1.02);
+}
+  
+
+  #toggleEye {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+
+ .conditions-container {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  max-width: 100%;
+  padding: 0 5px;
+  margin-left: 2px;
+}
+
+  .condition {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #ff6666; /* red by default */
+}
+
+.condition.show {
+  display: block;
+  opacity: 1;
+}
+
+.condition.valid {
+  color: #42f57e; /* green if valid */
+  font-weight: 600;
+  transform: translateX(5px);
+}
+
+  .enter-button {
+  margin-top: 10px;
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #6e44ff, #b892ff); /* violet gradient */
+  border: 2px solid #c7a3ff; /* outer lavender border */
+  border-radius: 30px;
+  font-size: 1rem;
+  color: white;
+  cursor: not-allowed;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 
+    inset 0 0 8px rgba(186, 144, 255, 0.5), /* inner glow */
+    0 0 12px rgba(170, 130, 255, 0.3);      /* outer glow */
+  background-clip: padding-box;
+  position: relative;
+  z-index: 1;
+}
+
+  .enter-button.enabled {
+  background: linear-gradient(135deg, #9f63ff, #e0b3ff);
+  color: black;
+  cursor: pointer;
+  border-color: #e0b3ff;
+  box-shadow: 
+    inset 0 0 12px rgba(221, 190, 255, 0.7),
+    0 0 20px rgba(200, 160, 255, 0.6);
+}
+
+
+  .generate-link {
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #aaaaff;
+  }
+
+  .generate-link:hover {
+    color: #ffffff;
+  }
+
+  .generated-container {
+    text-align: center;
+    color: black;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .spaceship-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+
+  .generated-password {
+    background-color: red;
+    padding: 10px 15px;
+    border-radius: 30px;
+    font-family: monospace;
+    font-size: 1.1rem;
+    margin: 15px 0;
+  }
+
+  .continue-button {
+    background-color: #00ffff;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .continue-button:hover {
+    background-color: #00ccdd;
+  }
+
+  .patience-message {
+    font-style: italic;
+    margin-top: 10px;
+    color: #ccccff;
+  }
