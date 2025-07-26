@@ -12,16 +12,18 @@
             padding: 0;
             box-sizing: border-box;
         }
-
-        body {
-            background-image: url(6.png);
-            font-family: 'Courier New', Courier, monospace;
-            min-height: 100vh;
-            padding: 20px;
-            color: white;
-            position: relative;
-            overflow-x: hidden;
-        }
+body {
+    background-image: url("6.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: 'Courier New', Courier, monospace;
+    min-height: 100vh;
+    padding: 20px;
+    color: white;
+    position: relative;
+    overflow-x: hidden;
+}
 
         .stars {
             position: fixed;
@@ -59,7 +61,7 @@
 
         .title {
             text-align: center;
-            font-size: 2.5em;
+            font-size: 3.5em;
             margin-bottom: 30px;
             color: #b19cd9;
             text-shadow: 0 0 20px rgba(177, 156, 217, 0.5);
@@ -125,11 +127,6 @@
             margin-bottom: 30px;
         }
 
-        .search-container {
-            position: relative;
-            margin-bottom: 20px;
-        }
-
         .search-icon {
             position: absolute;
             left: 15px;
@@ -177,7 +174,7 @@
         }
 
         .check-button {
-            background: #00cec9;
+            background: #151c34;
             color: white;
             border: none;
             padding: 15px 30px;
@@ -188,7 +185,7 @@
         }
 
         .check-button:hover {
-            background: #00b894;
+            background: #151c34;
             transform: translateY(-2px);
         }
 
@@ -284,7 +281,7 @@
     </div>
 
     <div class="container">
-        <h1 class="title">Aliens hate weak passwords</h1>
+        <h1 class="title">Arcood Made</h1>
         
         <div class="ufo-container">
             <div class="ufo">
@@ -294,7 +291,6 @@
 
         <div class="password-container">
             <div class="search-container">
-                <div class="search-icon"></div>
                 <input type="text" id="passwordInput" placeholder="enter your password" autocomplete="off">
             </div>
             
