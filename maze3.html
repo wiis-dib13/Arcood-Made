@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&family=Courier+New:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      background: #D8A2B9;
+      font-family:  "Irish Grover", cursive;
+      overflow-x: auto;
+    }
+
+    .office-header {
+      text-align: center;
+      padding: 20px;
+      backdrop-filter: blur(5px);
+    }
+
+    h1 {
+      font-family:  "Irish Grover", cursive;
+      color: #FE6262;
+      font-size: 2.5em;
+      margin: 0;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+      animation: flicker 3s infinite alternate;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+
+    .subtitle {
+      font-family:  "Irish Grover", cursive;
+      color: #FE6262;
+      font-size: 1.2em;
+      margin: 10px 0;
+      font-weight: bold;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+    }
+
+    .status-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #D8A2B9;
+      color: #ECF0F1;
+      padding: 10px 20px;
+      font-family:  "Irish Grover", cursive;
+      font-size: 0.9em;
+    }
+
+    .stress-meter {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .stress-bar {
+      width: 100px;
+      height: 10px;
+      background: #A67082;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .stress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #27AE60, #F39C12, #E74C3C);
+      width: 30%;
+      transition: width 0.3s ease;
+    }
+
+    #maze-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 20px auto;
+      width: fit-content;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+    }
+
+    .row {
+      display: flex;
+    }
+
+    .cell {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #666;
+      background-color: #F8F9FA;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      border-radius: 3px;
+      border-radius: 7px;
+      position: relative;
+      transition: background-color 0.2s ease;
+    }
+
+    .wall {
+      background: linear-gradient(45deg, #fc5a5a, #f7b0b0);
+      border-color: #1A252F;
+      border-radius: 7px;
+    }
+
+    .office-item {
+      background-color: #ECF0F1 !important;
+      font-size: 16px;
+    }
+
+    .player-cell {
+      background: radial-gradient(circle, #3498DB, #2980B9) !important;
+      animation: pulse 1.5s infinite;
+      box-shadow: 0 0 15px rgba(52, 152, 219, 0.5);
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .goal-cell {
+      background: radial-gradient(circle, #E74C3C, #C0392B) !important;
+      animation: brain-glow 2s infinite alternate;
+    }
+
+    @keyframes brain-glow {
+      0% { box-shadow: 0 0 10px rgba(231, 76, 60, 0.5); }
+      100% { box-shadow: 0 0 20px rgba(231, 76, 60, 0.8); }
+    }
+
+    .thoughts-bubble {
+      position: fixed;
+      background: rgba(255,255,255,0.95);
+      border: 2px solid #34495E;
+      border-radius: 20px;
+      padding: 15px;
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+      color: #2C3E50;
+      max-width: 200px;
+      z-index: 1000;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .thoughts-bubble.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .thoughts-bubble::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 20px;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid rgba(255,255,255,0.95);
+    }
+
+    .controls {
+      text-align: center;
+      margin: 20px;
+      font-family: "Courier New", monospace;
+      color: #2C3E50;
+    }
+
+    .victory-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+
+    .victory-message {
+      background: #D8A2B9;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      font-family: "Irish Grover", cursive;
+      color: #2C3E50;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      opacity: 0.7;
+    }
+    
+    #cloudes {
+      position: relative;
+bottom: 40rem;
+right: 8rem;
+margin: auto;
+margin-right: 3rem; 
+width: 229px;
+height: 200px;
+      background: url(sticker.png);
+    }
+    #cloude{
+         position: relative;
+bottom: 40rem;
+right: 55rem;
+margin: auto;
+margin-right: 3rem; 
+width: 229px;
+height: 200px;
+      background: url(sticker.png);
+      transform: rotate(25deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="office-header">
+    <h1> Maze of overthinking </h1>
+    <div class="subtitle">Level : overthinking office</div>
+  </div>
+
+  <div class="status-bar">
+    <div class="stress-meter">
+      😰 Stress: <div class="stress-bar"><div class="stress-fill" id="stress-fill"></div></div>
+    </div>
+    <div>⏰ <span id="time">09:00 AM</span></div>
+    <div>📍<span id="position">???</span></div>
+  </div>
+  <div id="maze-container"></div>
+<div id="cloudes"></div>
+<div id="cloude"></div>
+ 
+  <div class="thoughts-bubble" id="thoughts"></div>
+
+
+
+  <div class="victory-overlay" id="victory">
+    <div class="victory-message">
+      <h2>🎉 MISSION ACCOMPLISHED!</h2>
+      <p>You survived another day at the office!</p>
+    </div>
+  </div>
+
+  <script>
+const level = [
+  [1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1],
+  [1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1],
+  [1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1],
+  [1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1],
+  [0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1],
+  [1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1],
+  [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+  [1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1]
+];
+
+  const officeMap = [];
+
+    const officeItems = ['💼', '📋', '☕', '📞', '🖥️', '📄', '🖨️', '📌', '✏️', '💻'];
+    
+   
+    const overthinkingThoughts = [
+   "Should I have taken the other route?",
+"Will my boss notice I'm late?",
+"What if I get lost in this bureaucratic maze?",
+"Why couldn't this meeting be an email?",
+"Are my colleagues talking about me?",
+"I should have brought coffee...",
+"How am I going to explain this delay?",
+"This presentation is going to be a disaster...",
+"They'll probably ask me for TPS deferrals...",
+"Maybe I should resign..."
+    ];
+
+    const mazeContainer = document.getElementById("maze-container");
+    const cellElements = [];
+    const playerPos = { x: 0, y: 0 }; 
+    const goalPos = { x: 0, y: 14 };
+    let stressLevel = 30;
+    let gameTime = 540; 
+    let moveCount = 0;
+
+    function createMaze() {
+     for (let y = 0; y < level.length; y++) {
+  const rowDiv = document.createElement("div");
+  rowDiv.classList.add("row");
+  const rowCells = [];
+  const rowOffice = [];
+
+  for (let x = 0; x < level[y].length; x++) {
+    const cell = document.createElement("div");
+    cell.classList.add("cell");
+
+    let officeEmoji = "";
+    if (level[y][x] === 0) {
+      cell.classList.add("wall");
+    } else {
+      if (Math.random() < 0.15 && !(x === 0 && y === 0) && !(x === goalPos.x && y === goalPos.y)) {
+        officeEmoji = officeItems[Math.floor(Math.random() * officeItems.length)];
+      }
+    }
+
+    rowOffice.push(officeEmoji);
+    rowDiv.appendChild(cell);
+    rowCells.push(cell);
+  }
+
+  mazeContainer.appendChild(rowDiv);
+  cellElements.push(rowCells);
+  officeMap.push(rowOffice);
+}
+
+
+      updateMazeDisplay();
+    }
+
+function updateMazeDisplay() {
+  for (let y = 0; y < cellElements.length; y++) {
+    for (let x = 0; x < cellElements[y].length; x++) {
+      const cell = cellElements[y][x];
+      cell.classList.remove("player-cell", "goal-cell");
+
+      if (x === playerPos.x && y === playerPos.y) {
+        cell.textContent = "🙎‍♀️";
+        cell.classList.add("player-cell");
+      } else if (x === goalPos.x && y === goalPos.y) {
+        cell.textContent = "🧠";
+        cell.classList.add("goal-cell");
+      } else {
+        cell.textContent = officeMap[y][x] || "";
+      }
+    }
+  }
+}
+
+    function updateStatus() {
+    
+      const positions = [
+"Main entrance", "Administrative corridor", "Coffee area", "Near the photocopiers",
+"Managers' corridor", "Open space", "Meeting room", "HR office",
+"Waiting area", "Near the coffee machine", "Executive corridor", "Accounting office",
+"Break room", "Your office!", "Maximum stress zone"
+      ];
+      
+      const posIndex = Math.min(Math.floor((playerPos.x + playerPos.y) / 2), positions.length - 1);
+      document.getElementById("position").textContent = positions[posIndex];
+
+  
+      document.getElementById("stress-fill").style.width = `${stressLevel}%`;
+
+     
+      const hours = Math.floor(gameTime / 60);
+      const minutes = gameTime % 60;
+      document.getElementById("time").textContent = 
+        `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+    }
+
+    function showThought() {
+      const thought = overthinkingThoughts[Math.floor(Math.random() * overthinkingThoughts.length)];
+      const bubble = document.getElementById("thoughts");
+      bubble.textContent = thought;
+      
+   
+      bubble.style.left = Math.random() * (window.innerWidth - 220) + "px";
+      bubble.style.top = Math.random() * (window.innerHeight - 100) + "px";
+      
+      bubble.classList.add("show");
+      
+      setTimeout(() => {
+        bubble.classList.remove("show");
+      }, 3000);
+    }
+
+    function move(dx, dy) {
+      const newX = playerPos.x + dx;
+      const newY = playerPos.y + dy;
+
+      if (
+        newX >= 0 && newX < level[0].length &&
+        newY >= 0 && newY < level.length &&
+        level[newY][newX] === 1
+      ) {
+        playerPos.x = newX;
+        playerPos.y = newY;
+        moveCount++;
+        
+        stressLevel = Math.min(100, stressLevel + 2);
+        gameTime += 1;
+        
+      
+        if (Math.random() < 0.3) {
+          showThought();
+        }
+        
+        updateMazeDisplay();
+        updateStatus();
+
+       
+        if (playerPos.x === goalPos.x && playerPos.y === goalPos.y) {
+          setTimeout(() => {
+            document.getElementById("victory").style.display = "flex";
+          }, 500);
+          window.location.href = "maze4.html"; 
+        }
+      
+      } else {
+        
+        stressLevel = Math.min(100, stressLevel + 5);
+        updateStatus();
+        showThought();
+      }
+    }
+
+
+    document.addEventListener("keydown", (e) => {
+      if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
+        e.preventDefault();
+        
+        if (e.key === "ArrowUp") move(0, -1);
+        if (e.key === "ArrowDown") move(0, 1);
+        if (e.key === "ArrowLeft") move(-1, 0);
+        if (e.key === "ArrowRight") move(1, 0);
+      }
+    });
+
+
+    createMaze();
+    updateStatus();
+    
+   
+    setTimeout(() => {
+      showThought();
+    }, 2000);
+  </script>
+</body>
+</html>

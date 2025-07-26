@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&family=Courier+New:wght@400;700&display=swap" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+   <style>
+    body {
+        margin: 0;
+        background: linear-gradient(135deg, #D8C9A2 0%, #C4B086 100%);
+        font-family: "Irish Grover", cursive;
+        overflow-x: auto;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+
+    #earth-container {
+        width: 300px;
+        height: 300px;
+        margin: 2rem 0;
+        position: relative;
+    }
+
+
+    .message {
+        text-align: center;
+        font-size: 1.5rem;
+        color: #AE871C;
+        margin: 2rem 0;
+        max-width: 600px;
+        line-height: 1.4;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        opacity: 0;
+        animation: fade-in 1.5s ease forwards;
+        font-family:  "Irish Grover", cursive;
+    }
+
+    .message:nth-child(2) { animation-delay: 0.5s; }
+    .message:nth-child(3) { animation-delay: 2s; }
+    .message:nth-child(4) { animation-delay: 3.5s; }
+    .message:nth-child(5) { animation-delay: 5s; }
+
+    @keyframes fade-in {
+        to { opacity: 1; }
+    }
+
+ 
+    .floating-dot {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: rgba(174, 135, 28, 0.3);
+        border-radius: 50%;
+        animation: float 8s infinite ease-in-out;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+    }
+
+    .continue-btn {
+        background: rgba(174, 135, 28, 0.8);
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 20px;
+        font-family: "Irish Grover", cursive;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 2rem;
+        transition: all 0.3s ease;
+        opacity: 0;
+        animation: fade-in 1.5s ease forwards 6.5s;
+    }
+
+    .continue-btn:hover {
+        background: rgba(174, 135, 28, 1);
+        transform: translateY(-2px);
+    }
+
+ 
+    .loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #AE871C;
+        font-size: 18px;
+    }
+   </style>
+</head>
+<body>
+
+      <div class="message">You made a choice, and that's enough...</div>
+      <div class="message">You've been stuck here for a while... just like real life?</div>
+
+    <div class="floating-dot" style="top: 20%; left: 15%; animation-delay: 0s;"></div>
+    <div class="floating-dot" style="top: 30%; right: 20%; animation-delay: 2s;"></div>
+    <div class="floating-dot" style="bottom: 25%; left: 25%; animation-delay: 4s;"></div>
+    <div class="floating-dot" style="bottom: 15%; right: 15%; animation-delay: 1s;"></div>
+
+
+    
+   
+    <div id="earth-container">
+        <div class="loading">🌍 Loading Earth...</div>
+    </div>
+    
+    
+    
+    <div class="message" style="margin-right:55rem;">See? You got out. You always do.</div>
+    
+    <div class="message"  style="margin-left:40rem;">The world keeps spinning, and so do you.</div>
+
+    <button class="continue-btn" onclick="window.history.back()">Continue the journey</button>
+
+    <script>
+     
+        let scene, camera, renderer, earth;
+        let mouseX = 0, mouseY = 0;
+
+        function init() {
+            const container = document.getElementById('earth-container');
+      
+            scene = new THREE.Scene();
+            
+           
+            camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+            camera.position.z = 3;
+            
+       
+            renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(300, 300);
+            renderer.setClearColor(0x000000, 0); // Transparent
+            container.appendChild(renderer.domElement);
+            
+            // Géométrie de la sphère
+            const geometry = new THREE.SphereGeometry(1, 32, 32);
+            
+            // Créer une texture procédurale pour la Terre
+            const canvas = document.createElement('canvas');
+            canvas.width = 512;
+            canvas.height = 256;
+            const context = canvas.getContext('2d');
+            
+            
+            const gradient = context.createLinearGradient(0, 0, 0, 256);
+            gradient.addColorStop(0, '#4A90E2');
+            gradient.addColorStop(1, '#2E5BBA');
+            context.fillStyle = gradient;
+            context.fillRect(0, 0, 512, 256);
+            
+          
+            context.fillStyle = '#7ED321';
+ 
+            context.fillRect(100, 80, 60, 100);
+            context.fillRect(120, 60, 20, 40);
+           
+            context.fillRect(220, 70, 40, 80);
+            context.fillRect(235, 150, 25, 50);
+      
+            context.fillRect(320, 60, 80, 70);
+      
+            context.fillRect(380, 140, 30, 20);
+            
+          
+            context.fillStyle = 'rgba(255, 255, 255, 0.3)';
+            for (let i = 0; i < 20; i++) {
+                const x = Math.random() * 512;
+                const y = Math.random() * 256;
+                const size = Math.random() * 30 + 10;
+                context.beginPath();
+                context.arc(x, y, size, 0, Math.PI * 2);
+                context.fill();
+            }
+            
+            const texture = new THREE.CanvasTexture(canvas);
+            
+        
+            const material = new THREE.MeshPhongMaterial({ 
+                map: texture,
+                shininess: 30,
+                transparent: false
+            });
+            
+            // Créer la Terre
+            earth = new THREE.Mesh(geometry, material);
+            scene.add(earth);
+            
+            // Lumière ambiante
+            const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
+            scene.add(ambientLight);
+            
+            // Lumière directionnelle (soleil)
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+            directionalLight.position.set(1, 1, 1).normalize();
+            scene.add(directionalLight);
+            
+            // Supprimer le texte de loading
+            const loadingText = container.querySelector('.loading');
+            if (loadingText) {
+                loadingText.remove();
+            }
+            
+            // Démarrer l'animation
+            animate();
+        }
+        
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            // Rotation automatique
+            earth.rotation.y += 0.005;
+            
+            // Légère oscillation
+            earth.rotation.x = Math.sin(Date.now() * 0.001) * 0.1;
+            
+            // Interaction avec la souris (subtile)
+            earth.rotation.x += (mouseY * 0.0005);
+            earth.rotation.y += (mouseX * 0.0005);
+            
+            renderer.render(scene, camera);
+        }
+        
+        // Interaction souris
+        document.addEventListener('mousemove', (event) => {
+            mouseX = event.clientX - window.innerWidth / 2;
+            mouseY = event.clientY - window.innerHeight / 2;
+        });
+        
+        // Gérer le redimensionnement
+        window.addEventListener('resize', () => {
+            if (renderer) {
+                renderer.setSize(300, 300);
+            }
+        });
+        
+        // Initialiser quand la page est chargée
+        window.addEventListener('load', init);
+    </script>
+</body>
+</html>

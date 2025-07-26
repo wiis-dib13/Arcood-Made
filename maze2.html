@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      background: #7FABC0;
+    }
+
+    h1, h2 {
+      text-align: center;
+      font-family: "Irish Grover", cursive;
+      color: #f0faff;
+      padding-top: 10px;
+      font-weight: 400;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    #maze-container {
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 20px auto;
+      width: fit-content;
+    }
+
+    .row {
+      display: flex;
+    }
+
+    .cell {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #999;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      border-radius: 7px;
+    }
+
+    .wall {
+      background-color: #9cd9f1;
+    }
+    #cloude {
+    position: relative;
+    bottom:40rem;
+    margin: auto;
+    margin-right: 3rem; 
+    width: 329px;
+    height: 191px;
+    background: url(cloude.png);
+    }
+
+    #cloudes {
+      position: relative;
+bottom: 40rem;
+right: 60rem;
+margin: auto;
+margin-right: 3rem; 
+width: 329px;
+height: 191px;
+      background: url(cloude.png);
+    }
+
+    #claude {
+      position: relative;
+      bottom: 40rem;
+      right: 60rem;
+      margin: auto;
+      margin-right: 3rem; 
+      width: 329px;
+      height: 191px;
+      background: url(cloude.png);
+    }
+       .thoughts-bubble {
+      position: fixed;
+      background: rgba(255,255,255,0.95);
+      border: 2px solid #34495E;
+      border-radius: 20px;
+      padding: 15px;
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+      color: #2C3E50;
+      max-width: 200px;
+      z-index: 1000;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .thoughts-bubble.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .thoughts-bubble::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 20px;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid rgba(255,255,255,0.95);
+    }
+  </style>
+</head>
+<body>
+  <h1>maze of overthinking</h1>
+  <h2>level : Brain Fog</h2>
+  <div id="maze-container"></div>
+  <div id="cloudes"></div>
+  <div id="cloude"></div>
+  <div id="claude"></div>
+
+    <div class="thoughts-bubble" id="thoughts"></div>
+
+
+
+  <script>
+    const overthinkingThoughts = [
+  "Why did I come here?",
+  "What was I doing?",
+  "I can’t focus...",
+  "Everything feels heavy.",
+  "Am I going in circles?",
+  "This feels endless.",
+  "Wait… did I already try this way?"
+    ];
+
+    
+    function showThought() {
+      const thought = overthinkingThoughts[Math.floor(Math.random() * overthinkingThoughts.length)];
+      const bubble = document.getElementById("thoughts");
+      bubble.textContent = thought;
+      
+   
+      bubble.style.left = Math.random() * (window.innerWidth - 220) + "px";
+      bubble.style.top = Math.random() * (window.innerHeight - 100) + "px";
+      
+      bubble.classList.add("show");
+      
+      setTimeout(() => {
+        bubble.classList.remove("show");
+      }, 3000);
+    }
+    setInterval(showThought, 2500);
+
+
+
+
+    const level = [
+      [1, 0, 1, 1, 1, 0, 1, 1, 0, 1],
+      [1, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+      [1, 1, 1, 0, 1, 1, 1, 0, 1, 1],
+      [0, 0, 1, 0, 1, 0, 1, 0, 0, 0],
+      [1, 0, 1, 1, 1, 0, 1, 1, 1, 0],
+      [1, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+      [1, 1, 1, 0, 1, 1, 1, 1, 1, 1],
+      [0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+      [1, 1, 1, 1, 1, 0, 1, 1, 0, 1],
+      [1, 0, 0, 0, 0, 0, 1, 0, 0, 1]
+    ];
+
+    const mazeContainer = document.getElementById("maze-container");
+    const cellElements = [];
+    const playerPos = { x: 0, y: 0 }; 
+    const goalPos = { x: 9, y: 9 };   
+
+    function createMaze() {
+      for (let y = 0; y < level.length; y++) {
+        const rowDiv = document.createElement("div");
+        rowDiv.classList.add("row");
+
+        const rowCells = [];
+
+        for (let x = 0; x < level[y].length; x++) {
+          const cell = document.createElement("div");
+          cell.classList.add("cell");
+          if (level[y][x] === 0) {
+            cell.classList.add("wall");
+          }
+          rowDiv.appendChild(cell);
+          rowCells.push(cell);
+        }
+
+        mazeContainer.appendChild(rowDiv);
+        cellElements.push(rowCells);
+      }
+
+      updateMazeDisplay();
+    }
+
+    function updateMazeDisplay() {
+      for (let y = 0; y < cellElements.length; y++) {
+        for (let x = 0; x < cellElements[y].length; x++) {
+          const cell = cellElements[y][x];
+          if (cell.classList.contains("wall")) continue;
+
+        
+          cell.textContent = "";
+
+       
+          if (x === goalPos.x && y === goalPos.y) {
+            cell.textContent = "🧠";
+          }
+
+          // Position joueur
+          if (x === playerPos.x && y === playerPos.y) {
+            cell.textContent = "⛅";
+          }
+        }
+      }
+    }
+
+    function move(dx, dy) {
+      const newX = playerPos.x + dx;
+      const newY = playerPos.y + dy;
+
+      if (
+        newX >= 0 && newX < level[0].length &&
+        newY >= 0 && newY < level.length &&
+        level[newY][newX] === 1
+      ) {
+        playerPos.x = newX;
+        playerPos.y = newY;
+        updateMazeDisplay();
+
+      
+        if (playerPos.x === goalPos.x && playerPos.y === goalPos.y) {
+          setTimeout(() => {
+            alert("Félicitations ! Tu as atteint le 🧠");
+            window.location.href = "maze3.html"; 
+          }, 300);
+        }
+      }
+    }
+
+    document.addEventListener("keydown", (e) => {
+          if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(event.key)) {
+    event.preventDefault();
+  }
+      if (e.key === "ArrowUp") move(0, -1);
+      if (e.key === "ArrowDown") move(0, 1);
+      if (e.key === "ArrowLeft") move(-1, 0);
+      if (e.key === "ArrowRight") move(1, 0);
+    });
+
+    createMaze();
+  </script>
+</body>
+</html>
