@@ -1,8 +1,8 @@
-# 🌌 Arcood-Made — AI vs Human Hackathon
+# 🌌 Arcood-Made — AI vs HI Hackathon
 
 **"Arcood-Made"** is a playful, immersive web experience where **emotions take planetary form** and only humans can navigate them.
 
-Built for the **AI vs Human Hackathon**, this project mixes emotion, creativity, and interactivity — the things that make us deeply human.
+Built for the **AI vs HI Hackathon**, this project mixes emotion, creativity, and interactivity — the things that make us deeply human.
 
 ---
 
@@ -10,7 +10,7 @@ Built for the **AI vs Human Hackathon**, this project mixes emotion, creativity,
 
 Explore a surreal galaxy where each planet represents a human emotion.  
 Choose how you feel today, and let the galaxy guide you.
-### login 
+### Login 
 to test your patience with 5 conditions for a password because aliens hate weak passwords !
 
 ### 🪐 The 5 Emotional Planets:
@@ -68,7 +68,29 @@ Languages: HTML, CSS, JavaScript
 
 
 
-# interface 
+# Interface 
+Login Page
 ![git](https://github.com/user-attachments/assets/d98f4e2e-4f7c-46e6-9c16-0782b38b88ff)
 
-![hm](https://github.com/user-attachments/assets/2e60cc51-7b0e-40aa-a117-361db233c049)
+Tarot-Card Reading Page
+<img width="2548" height="1194" alt="image" src="https://github.com/user-attachments/assets/02952b9f-383d-4138-b760-2c15efd8c6ef" />
+
+Venus - Love - Delulu love meter 
+Earth - Overthinking - Maze Game
+Mars - Anger - Whack an Aestroid 
+<img width="2546" height="1205" alt="image" src="https://github.com/user-attachments/assets/9576ed4e-b24a-489d-b169-148709c61e80" />
+<img width="2547" height="1205" alt="image" src="https://github.com/user-attachments/assets/35b2754d-2ec2-44eb-98d6-73ee250f9b7f" />
+Pluto - Loneliness - Rock with me (A Virtual Pet-Rock)
+Jupiter - Hapiness - Make A Cosmic drink!
+Exit - Mood Checker
+<img width="2539" height="1200" alt="image" src="https://github.com/user-attachments/assets/41c99f0a-a4be-4c10-ac0a-ddcec9ab7a43" />
+If user is "not" okay - Random task generator 
+<img width="2549" height="1205" alt="image" src="https://github.com/user-attachments/assets/83ad1a3f-779b-43a4-a6de-d1cacb69647b" />
+<img width="2550" height="1205" alt="image" src="https://github.com/user-attachments/assets/41df597d-9310-4dd9-b7af-bf38c9d498ef" />
+
+
+
+
+
+
+
