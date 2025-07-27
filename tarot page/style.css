@@ -212,7 +212,7 @@
         }
 
         .instructions {
-            margin-top: 40px;
+            margin-top: 15px;
             text-align: center;
             opacity: 0.8;
             max-width: 600px;
@@ -221,7 +221,7 @@
             color: #e6e6fa; 
             letter-spacing: 1px;
             text-shadow: 0 0 2px rgba(255, 248, 220, 0.5);
-            margin-bottom: 20px;
+            margin-bottom: 5px;
         }
 
         @media (max-width: 768px) {
@@ -236,3 +236,34 @@
                 font-size: 2em;
             }
         }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        
+
+.custom-button-container {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.custom-button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-family: 'Cinzel Decorative', serif;
+    background: linear-gradient(135deg, #b19cd9, #a18cd1);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 12px rgba(177, 156, 217, 0.4);
+    transition: all 0.3s ease;
+}
+
+.custom-button:hover {
+    background: linear-gradient(135deg, #a18cd1, #b19cd9);
+    box-shadow: 0 0 16px rgba(177, 156, 217, 0.7);
+}
+
