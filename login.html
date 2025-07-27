@@ -185,8 +185,23 @@ body {
         }
 
         .check-button:hover {
-            background: #151c34;
+            background: #2d3748;
             transform: translateY(-2px);
+        }
+
+        .check-button:disabled {
+            background: #4a5568;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .proceed-button {
+            background: #00b894;
+            display: none;
+        }
+
+        .proceed-button:hover:not(:disabled) {
+            background: #00a085;
         }
 
         #skip {
@@ -296,6 +311,7 @@ body {
             
             <div class="buttons">
                 <button class="check-button" onclick="checkPassword()">✓</button>
+                <button class="check-button proceed-button" id="proceedButton" onclick="proceedToMain()">Proceed</button>
                 <button class="check-button" onclick="skip()">Skip</button>
             </div>
             <div id="skip"></div>
@@ -397,11 +413,13 @@ body {
       let allPassed = true;
       let visibleRules = 0;
 
+    
       rules.forEach(rule => {
         const element = document.getElementById(rule.id);
         element.classList.remove('completed', 'failed');
       });
 
+      
       for (let i = 0; i < rules.length; i++) {
         const rule = rules[i];
         const element = document.getElementById(rule.id);
@@ -427,13 +445,18 @@ body {
         }
       }
 
+      
       const successMessage = document.getElementById('successMessage');
-      const allRulesVisible = visibleRules === rules.length;
+      const proceedButton = document.getElementById('proceedButton');
 
-      if (allPassed) {
+      if (allPassed && visibleRules === rules.length) {
         successMessage.classList.add('visible');
+        proceedButton.style.display = 'block';
+        proceedButton.disabled = false;
       } else {
         successMessage.classList.remove('visible');
+        proceedButton.style.display = 'none';
+        proceedButton.disabled = true;
       }
     }
 
@@ -447,18 +470,18 @@ body {
         alert("You must fulfill all conditions to enter the spaceship."); 
       }
     }
+
+    function skip() {
+      let skipDiv = document.getElementById("skip");
+      skipDiv.textContent = "No patient detected, Humanity confirmed!";
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 2000);
+    }
+
+   
     document.getElementById('passwordInput').addEventListener('input', checkPassword);
     showNextRule();
-
-    
-        function skip(){
-            let skip = document.getElementById("skip")
-            skip.textContent = "No patient detected, Humanity confirmed !"
-               setTimeout(() => {
-        window.location.href = "index.html";
-    }, 2000);
-        }
-        
   </script>
 
 </body>
