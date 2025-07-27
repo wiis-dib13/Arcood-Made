@@ -1,0 +1,36 @@
+<svg width="1400" height="562" viewBox="0 0 1400 562" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_dn_8_102)">
+<circle cx="108" cy="108" r="108" transform="matrix(-1 0 0 1 894 244)" fill="#DBB2C0"></circle>
+<ellipse cx="167" cy="180.5" rx="167" ry="180.5" transform="matrix(-1 0 0 1 501 160)" fill="#DBB2C0"></ellipse>
+<ellipse cx="335.5" cy="315" rx="335.5" ry="315" transform="matrix(-1 0 0 1 288 44)" fill="#DBB2C0"></ellipse>
+<ellipse cx="191.5" cy="178.5" rx="191.5" ry="178.5" transform="matrix(-1 0 0 1 757 164)" fill="#DBB2C0"></ellipse>
+<ellipse cx="106" cy="107.5" rx="106" ry="107.5" transform="matrix(-1 0 0 1 1039 279)" fill="#DBB2C0"></ellipse>
+<circle cx="134.5" cy="134.5" r="134.5" transform="matrix(-1 0 0 1 1236 235)" fill="#DBB2C0"></circle>
+<circle cx="86" cy="86" r="86" transform="matrix(-1 0 0 1 1352 284)" fill="#DBB2C0"></circle>
+</g>
+<defs>
+<filter id="filter0_dn_8_102" x="-430.6" y="0.400002" width="1830.2" height="725.2" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
+<feOffset dy="4"></feOffset>
+<feGaussianBlur stdDeviation="23.8"></feGaussianBlur>
+<feComposite in2="hardAlpha" operator="out"></feComposite>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"></feColorMatrix>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_8_102"></feBlend>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+<feTurbulence type="fractalNoise" baseFrequency="0.76923078298568726 0.76923078298568726" stitchTiles="stitch" numOctaves="3" result="noise" seed="2126"></feTurbulence>
+<feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise"></feColorMatrix>
+<feComponentTransfer in="alphaNoise" result="coloredNoise1">
+<feFuncA type="discrete" tableValues="0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "></feFuncA>
+</feComponentTransfer>
+<feComposite operator="in" in2="shape" in="coloredNoise1" result="noise1Clipped"></feComposite>
+<feFlood flood-color="#70233D" result="color1Flood"></feFlood>
+<feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1"></feComposite>
+<feMerge result="effect2_noise_8_102">
+<feMergeNode in="shape"></feMergeNode>
+<feMergeNode in="color1"></feMergeNode>
+</feMerge>
+<feBlend mode="normal" in="effect2_noise_8_102" in2="effect1_dropShadow_8_102" result="effect2_noise_8_102"></feBlend>
+</filter>
+</defs>
+</svg>
