@@ -1,0 +1,120 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', cursive;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("./assets/bg.jpg") no-repeat center center fixed;
+  background-size: 100%;
+  overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.2); 
+  z-index: 0;
+}
+
+
+
+.container {
+  text-align: center;
+  z-index: 2;
+}
+
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 30px;
+  color: #fff;
+  text-shadow: 2px 2px #ff69b4;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+button {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: #fcbfed;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #e0f7fa;
+}
+button {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 50px; 
+  background: rgba(252, 191, 237, 0.3); 
+  color: #fcbfed;
+  text-shadow: 2px 2px #120009;
+  backdrop-filter: blur(6px); 
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  margin: 10px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: rgba(252, 191, 237, 0.5);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(252, 191, 237, 0.6);
+}
+
+.shower {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+
+
+
+
+.falling-icon {
+  position: fixed;
+  top: -50px;
+  width: 60px;
+  height: 60px;
+  pointer-events: none;
+  animation: fall 3s linear forwards;
+  opacity: 1;
+  transition: opacity 1.5s ease; /* Smooth fade */
+  z-index: 9999;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1; /* still visible */
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0; /* fade happens here */
+  }
+}
