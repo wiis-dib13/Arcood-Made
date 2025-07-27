@@ -137,3 +137,37 @@ function placeMoon(name) {
 
     wrapper.appendChild(moon);
 }
+
+function toggleEffect(name) {
+    const planet = document.getElementById("planet");
+    const wrapper = document.querySelector(".planet-wrapper");
+    const moon = document.createElement("img");
+    moon.src = `./assets/${name}.png`;
+    moon.classList.add("moon-icon");
+
+    // Ensure the wrapper is relatively positioned
+    wrapper.style.position = "relative";
+
+    // Get planet position and size
+    const planetRect = planet.getBoundingClientRect();
+    const wrapperRect = wrapper.getBoundingClientRect();
+
+    const centerX = planet.offsetLeft + planet.offsetWidth / 2;
+    const centerY = planet.offsetTop + planet.offsetHeight / 2;
+    const radius = planet.offsetWidth / 2;
+
+    // Random angle around the planet
+    const angle = Math.random() * 2 * Math.PI;
+    const distance = radius + 30 + Math.random() * 30; // Place it 30–60px outside
+
+    const x = centerX + distance * Math.cos(angle) - 20; // 20 = icon size / 2
+    const y = centerY + distance * Math.sin(angle) - 20;
+
+    moon.style.position = "absolute";
+    moon.style.left = `${x}px`;
+    moon.style.top = `${y}px`;
+
+    wrapper.appendChild(moon);
+
+}
+
