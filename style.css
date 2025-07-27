@@ -274,7 +274,7 @@
     width: 44px;
     height: 44px;
     padding: 8px;
-    background: rgba(119, 40, 45, 0.6); /* translucent light pink */
+   background: rgba(252, 191, 237, 0.9); /* translucent light pink */
     border-radius: 50%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
@@ -284,5 +284,5 @@
   
   #exitBtn:hover {
     transform: scale(1.1);
-    background: rgba(252, 191, 237, 0.9);
+         background: rgba(119, 40, 45, 0.6); 
   }
