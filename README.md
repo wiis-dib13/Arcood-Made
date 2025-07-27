@@ -56,10 +56,9 @@ Feeling done with emotions? Hit the **Exit** button…
 
 ## 🛠️ Technologies Used
 
-- HTML, CSS, JavaScript,three.js
-- Figma Design
-- Game loops and DOM animation
-- Creative storytelling
+Languages: HTML, CSS, JavaScript
+• Design Tools: Figma, Canva, Freepik
+• AI Used: OpenArt (Tarot card illustrations)
 
 ## 📁 Project Structure
 
