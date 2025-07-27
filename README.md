@@ -105,7 +105,7 @@ Feeling done with emotions? Hit the **Exit** button but beware, it launches a **
 
 <img width="2539" height="1200" alt="image" src="https://github.com/user-attachments/assets/41c99f0a-a4be-4c10-ac0a-ddcec9ab7a43" />
 
-**If user is "not" okay - Random task generator**
+**If user is "not" okay - Random Task Generator**
 
 <img width="2549" height="1205" alt="image" src="https://github.com/user-attachments/assets/83ad1a3f-779b-43a4-a6de-d1cacb69647b" />
 <img width="2550" height="1205" alt="image" src="https://github.com/user-attachments/assets/41df597d-9310-4dd9-b7af-bf38c9d498ef" />
