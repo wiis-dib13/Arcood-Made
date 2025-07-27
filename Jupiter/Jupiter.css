@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(assets/bg.png);
+  background-repeat: repeat-x;
+}
+
+.text {
+  position: absolute;
+  width: 610px;
+  height: 54px;
+  left: calc(50% - 590px / 2 - 16px);
+  top: 62px;
+
+  font-family: "Fontdiner Swanky", serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 48px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #f4a946;
+  text-shadow: 8px 10px 8px rgba(0, 0, 0, 0.25);
+}
+
+.box {
+  position: absolute;
+  width: 1094px;
+  height: 556px;
+  left: 173px;
+  top: 121px;
+
+  background: #8B7355;
+  border: 1px solid #000000;
+
+  border-radius: 120px;
+
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatDown {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+#box-left {
+  box-sizing: border-box;
+  position: absolute;
+  width: 166.46px;
+  height: 418px;
+  left: 112px;
+  top: 121px;
+  animation: floatUp 2s ease-in-out infinite;
+  background: #A94514;
+  box-shadow: 10px 4px 4px #D66012;
+}
+.ice{
+  padding-top: 20px;
+  padding-right: 20px;
+}
+
+#box-right {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 166.46px;
+  height: 418px;
+  left: 1000px;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px 0;
+  top: 121px;
+  animation: floatDown 2s ease-in-out infinite;
+  background: #A94514;
+  box-shadow: 10px 4px 4px #D66012;
+}
+
+
+
+button {
+  margin-top: 0%;
+  margin-left: 526px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  width: 193px;
+  height: 77px;
+  font-family: "Fontdiner Swanky", serif;
+  background: #A0522D;
+  border: 1px solid #CC760E;
+  border-radius: 8px;
+  color: #f4a946;
+  box-shadow: 8px 8px 8px black;
+}
+
+.glass {
+  margin-top: 100px;
+  margin-left: 470px;
+
+}
+
+@keyframes shift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
