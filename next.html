@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose your Avatar</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <main>
+        <div class="cloud1">
+            <img src="images/image.svg">
+        </div>
+        <div class="cloud2">
+            <img src="images/image (1).svg">
+        </div>
+        <div class="cloud3">
+            <img src="images/image (2).svg">
+        </div>
+        <div class="transcard fade-in">
+            <img src="images/image (3).svg">
+        </div>
+        <div class="heading">
+            <div id="greeting"></div>
+        </div>
+        <div class="accesories">
+            <ul>
+                <li class="option" >
+                    <img id="a1" src="images/Group 7.svg" width="150px" onclick="selectCharacter('a1')">
+                </li>
+                <li class="option" >
+                    <img id="a2" src="images/Group 8.svg" width="150px" onclick="selectCharacter('a2')">
+                </li>
+                <li class="option">
+                    <img id="a3" src="images/Group 9.svg" width="150px" onclick="selectCharacter('a3')">
+                </li>
+            </ul>
+        </div>
+    </main>
+    <script>
+        const name = localStorage.getItem("userName");
+
+        if (name) {
+            document.getElementById("greeting").textContent = `Give ${name} a personality!`;
+        } else {
+            window.location.href = "game.html";
+        }
+
+        function selectCharacter(characterId) {
+        localStorage.setItem("selectedCharacter", characterId);
+        const imgSrc = document.getElementById(characterId).src;
+        console.log("Selected image src:", imgSrc);
+        localStorage.setItem("characterImage", imgSrc);
+        window.location.href = "rps.html";
+    }
+</script>
+
+</body>
+</html>

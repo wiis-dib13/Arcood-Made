@@ -1,0 +1,220 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Oi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url(images/Rectangle\ 3.svg);
+}
+.cloud1{
+    position: fixed;
+    bottom:-10px;
+    left:0;
+    z-index: 3;
+
+}
+.cloud2{
+    position: fixed;
+    bottom: -30px;
+    left:0;
+    z-index: 2;
+}
+.cloud3{
+    position: fixed;
+    bottom: 30px;
+    right: 0;
+    z-index:1;
+}
+.transcard img{
+    width: 80%;
+}
+.transcard{
+    position:fixed;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+}
+.rock{
+    display: flex;
+    position: fixed;
+    z-index: 5;
+    height: 100vh;
+    width:100vw;
+    justify-content: center;
+    align-items: center;
+}
+.rock img{
+    width: 30%;
+    cursor: pointer;
+}
+.rock img:hover{
+    width: 25%;
+    cursor: pointer;
+}
+.title{
+    position: fixed;
+    z-index: 6;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
+.oi-regular {
+  font-family: "Oi", serif;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 90px;
+  color: white;
+}
+.sent{
+    width: 340px;
+    height: 45px;
+    border-radius: 40px;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 650px;
+    z-index: 7;
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 100;
+    font-style: normal;
+}
+.start-msg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+}
+
+.fade-in {
+  opacity: 0;                   /* start transparent */
+  animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.rock1 img{
+    width: 15%;
+}
+.rock1{
+    display: flex;
+    position: fixed;
+    z-index: 5;
+    height: 100vh;
+    width:100vw;
+    left: 300px;
+}
+.grow-in {
+  transform: scale(0);                  /* start at 0 size */
+  animation: growIn 1s ease-out forwards;
+}
+
+@keyframes growIn {
+  to {
+    transform: scale(1);                /* full original size */
+  }
+}
+
+.instructions{
+    width: 500px;
+    position: fixed;
+    z-index: 7;
+    top: 25%;
+    right: 20%;
+}
+.content{
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 25px;
+}
+.name ul{
+    position: fixed;
+    z-index: 8;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    position: fixed;
+    top: 470px;
+    left: 300px;
+}
+.namebox{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    padding: 5px;
+}
+input[type="text"] {
+  padding: 10px;
+  width: 100%;
+  border: 2px solid #4a4a6a;
+  border-radius: 20px;
+  outline: none;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: border-color 0.3s ease;
+  font-family: "IBM Plex Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+#hello:hover{
+    cursor: pointer;
+}
+.letter{
+    position:fixed;
+    z-index: 9;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    top: 90px;
+}
+.text{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 25px;
+    position: relative;
+    top: 445px;
+    z-index: 9;
+}
+#go-back{
+    background-color: white;
+    padding: 15px;
+    display: inline-block;
+    border-radius: 50px;
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 25px;
+}
+.button1{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 9;
+    top: 470px;
+    cursor: pointer;
+}
+
+
+
+
+
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock With Me</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div class="title oi-regular">
+            <div id="wrapper3">
+                ROCK WITH ME
+            </div>
+            
+        </div>
+        
+        <div class="cloud1">
+            <img src="images/image.svg">
+        </div>
+        <div class="cloud2">
+            <img src="images/image (1).svg">
+        </div>
+        <div class="cloud3">
+            <img src="images/image (2).svg">
+        </div>
+       <div class="transcard" id="wrapper2">
+            <img src="images/image (3).svg">
+        </div>
+        <div class="rock" id="wrapper">
+            <img src="images/stone.svg" id="start-btn">
+        </div>
+        <div class="start-msg">
+            <div class="sent" id="wrapper1">
+                <h3>Click the rock to start!</h3>
+            </div>
+        </div>
+    </main>
+
+    <script>
+            const startBtn = document.getElementById("start-btn");
+            const wrapper = document.getElementById("wrapper");
+            const wrapper1= document.getElementById("wrapper1");
+            const wrapper2= document.getElementById("wrapper2");
+            const wrapper3= document.getElementById("wrapper3");
+
+            startBtn.addEventListener("click", () => {
+                wrapper.classList.add("fade-out");
+                wrapper1.classList.add("fade-out");
+                wrapper2.classList.add("fade-out");
+                wrapper3.classList.add("fade-out");
+
+                // Wait for the fade-out to finish (800ms), then go to game page
+                setTimeout(() => {
+                window.location.href = "game.html";
+                }, 800);
+            });
+    </script>
+</body>
+
+</html>

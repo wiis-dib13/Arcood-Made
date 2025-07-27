@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Your friend</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div class="cloud1">
+            <img src="images/image.svg">
+        </div>
+        <div class="cloud2">
+            <img src="images/image (1).svg">
+        </div>
+        <div class="cloud3">
+            <img src="images/image (2).svg">
+        </div>
+        <div class="transcard fade-in">
+            <img src="images/image (3).svg">
+        </div>
+        <div class="rock1 grow-in">
+            <img src="images/stone.svg">
+        </div>
+        <div  class=" instructions fade-in" >
+            <div class="content">
+                Hello, space traveler.<br>
+                Welcome to Pluto — cold, quiet, and a little forgotten. But you&apos;re not alone. Meet your new friend: a lonely little rock who&apos;s been drifting through the cosmic silence, waiting for someone like you. It doesn&apos;t remember its name... maybe you can help with that?
+            </div>
+                <ul>
+                    <li class="namebox">
+                        <input type="text" id="nameInput" placeholder="Name your friend">
+                    </li>
+                    <li class="namebox">
+                        <img src="images/icons8-tick.svg" id="hello" width="40px">
+                    </li>
+                </ul>
+        </div>
+            
+    </main>
+
+     <script>
+        window.addEventListener("DOMContentLoaded", () => {
+        const input = document.getElementById("nameInput");
+        const next =    document.getElementById("hello");
+        
+        next.addEventListener("click", () => {
+            const name = input.value.trim();
+                if (name) {
+                    localStorage.setItem("userName", name); // Store the name
+                    window.location.href = "next.html";     // Move to next page
+                } else {
+                    alert("Please enter your name!");
+                }
+            });
+        });
+  </script>
+</body>
+</html>
