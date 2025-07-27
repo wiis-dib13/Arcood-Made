@@ -1,0 +1,255 @@
+@font-face {
+  font-family: 'Super Adorable';
+  src: url('./fonts/Super Adorable.ttf') format('truetype');
+}
+
+body {
+  font-family: 'Super Adorable';
+  margin: 0;
+  background-image: url('images/bg.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.app {
+  text-align: center;
+  padding: 20px;
+}
+
+.title {
+ font-family: 'Super Adorable';
+  font-size: 28px;
+  font-weight: bold;
+  color: #e91e63;
+  margin-bottom: 20px;
+}
+
+.card-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.tarot-card {
+  border: 2.5px solid black;
+  background-color: #fefaf0;
+  padding: 8px;
+  border-radius: 30px;
+  width: 220px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.inner-border {
+  background-color: #de96af;
+  border: 2.5px solid #de96af;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Sniglet', cursive;
+  text-align: center;
+}
+
+#question {
+  font-family: 'Cherry Bomb One';
+  font-size: 18px;
+  color: #e91e63;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#points {
+  font-size: 14px;
+  color: #999;
+  font-weight: bold;
+  text-align: center;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  font-size: 1.4rem;
+  border-radius: 50%;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px #d15e9d, 0 0 20px #d15e9d;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.yes {
+  background-color: #f8bbd0;
+  color: #880e4f;
+}
+
+.no {
+  background-color: #cfd8dc;
+  color: #37474f;
+}
+
+.restart-btn {
+  margin-top: 30px;
+  padding: 12px 24px;
+  font-size: 1.1em;
+  font-family: 'Sniglet', cursive;
+  background-color: #fff5f8;
+  border: 3px solid #ff70a6;
+  border-radius: 30px;      
+  color: #ff4d88;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* subtle depth */
+  transition: all 0.3s ease;
+}
+
+.restart-btn:hover {
+  background-color: #ffe6ec;
+  color: #d6366b;
+  border-color: #d6366b;
+}
+
+
+#meter {
+  font-family: 'Super Adorable';
+  margin-top: 10px;
+  font-size: 20px;
+  color: #d81b60;
+  font-weight: bold;
+}
+
+.meter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Sniglet', sans-serif;
+  font-size: 18px;
+}
+
+.meter-and-tooltip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tooltip {
+  margin-top: 10px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip img {
+  width: 20px;
+  height: 80px; /* maybe adjust here, dunno huhu*/
+  vertical-align: middle;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  width: 200px;
+  background-color: #fff4fb;
+  color: #333;
+  text-align: center;
+  border-radius: 8px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: opacity 0.3s;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+#result {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.result-text {
+  margin-top: 20px;
+  font-family: 'Super Adorable';
+  font-size: 1.3rem;
+  color: #d15e9d;
+}
+
+.hypnotic-wheel {
+  margin: 10px auto 0;
+  width: 200px;
+  height: 200px;
+  display: block;
+}
+
+.spin {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(10px); }
+  100% { transform: translateY(0px); }
+}
+
+.cloud {
+  position: absolute;
+  width: 400px;
+  opacity: 0.8;
+  z-index: 0;
+  animation: float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.top-left { /*adjust here the cloud*/
+  top: 40px;
+  left: 0;
+}
+
+.bottom-right { /*adjust here the cloud*/
+  bottom: 40px;
+  right: 0;
+}
