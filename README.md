@@ -62,7 +62,63 @@ Feeling done with emotions? Hit the **Exit** button but beware, it launches a **
 - AI Used: OpenArt (Tarot card illustrations)
 
 
- <pre> &lt;details&gt; &lt;summary&gt;<strong>📁 Project Structure</strong>&lt;/summary&gt; ```plaintext Arcood-Made/ ├── README.md ├── style.css ├── login.html ├── index.html ├── assets/ ├── Jupiter/ │ ├── assets/ │ ├── Jupiter.html │ ├── Jupiter.css │ └── Jupiter.js ├── Mars-WAM/ │ ├── assets/ │ ├── index.html │ ├── style.css │ └── script.js ├── custom-planet/ │ ├── assets/ │ ├── customizable-planet.html │ ├── style.css │ └── script.js ├── maze/ │ ├── brain.png │ ├── cloude.png │ ├── maze.html │ ├── maze2.html │ ├── maze3.html │ ├── maze4.html │ ├── spiral.png │ └── sticker.png ├── mood/ │ ├── assets/ │ ├── index.html │ ├── index2.html │ ├── style.css │ ├── style2.css │ ├── script.css │ └── script2.js ├── pluto/ │ ├── audio/ │ ├── images/ │ ├── game.html │ ├── index.html │ ├── next.html │ ├── nextpage.html │ ├── rps.html │ ├── script.js │ ├── style.css │ ├── style1.css │ └── style2.css └── venus/ ├── font/ ├── images/ ├── index.html ├── j ├── script.js └── style.css ``` &lt;/details&gt; </pre>
+ Arcood-Made/
+├── README.md
+├── style.css
+├── login.html
+├── index.html
+├── assets/
+├── Jupiter/
+│   ├── assets/
+│   ├── Jupiter.html
+│   ├── Jupiter.css
+│   └── Jupiter.js
+├── Mars-WAM/
+│   ├── assets/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+├── custom-planet/
+│   ├── assets/
+│   ├── customizable-planet.html
+│   ├── style.css
+│   └── script.js
+├── maze/
+│   ├── brain.png
+│   ├── cloude.png
+│   ├── maze.html
+│   ├── maze2.html
+│   ├── maze3.html
+│   ├── maze4.html
+│   ├── spiral.png
+│   └── sticker.png
+├── mood/
+│   ├── assets/
+│   ├── index.html
+│   ├── index2.html
+│   ├── style.css
+│   ├── style2.css
+│   ├── script.css
+│   └── script2.js
+├── pluto/
+│   ├── audio/
+│   ├── images/
+│   ├── game.html
+│   ├── index.html
+│   ├── next.html
+│   ├── nextpage.html
+│   ├── rps.html
+│   ├── script.js
+│   ├── style.css
+│   ├── style1.css
+│   └── style2.css
+└── venus/
+    ├── font/
+    ├── images/
+    ├── index.html
+    ├── j
+    ├── script.js
+    └── style.css
 
 
 # Interface 
