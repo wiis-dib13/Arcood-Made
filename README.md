@@ -24,7 +24,7 @@ to test your patience with 5 conditions for a password because aliens hate weak 
 3. **🔥 Mars – Anger**
    - Smash your frustration in a **Whack-an-Asteroid arcade-style game.
 
-4. **🪨 Pluto – Loneliness**
+4. **🌑 Pluto – Loneliness**
    - Interact with a **tiny rock friend** and explore silent, minimalist emotions.
 
 5. **🍊 Jupiter – Happiness**
@@ -76,9 +76,13 @@ Login Page
 Tarot-Card Reading Page
 <img width="2548" height="1194" alt="image" src="https://github.com/user-attachments/assets/02952b9f-383d-4138-b760-2c15efd8c6ef" />
 
-Venus - Love - Delulu love meter 
+Venus - Love - Delulu love meter
+<img width="2879" height="1521" alt="image" src="https://github.com/user-attachments/assets/09db20b6-14af-4d80-9fae-b8a7d7920af2" />
+<img width="2840" height="1505" alt="image" src="https://github.com/user-attachments/assets/84811b1d-46b4-4136-a9ec-ecf662df0d02" />
+
 
 Earth - Overthinking - Maze Game
+<img width="1310" height="590" alt="image" src="https://github.com/user-attachments/assets/8efed28a-588d-4a2f-92d7-53ecb52064c9" />
 
 Mars - Anger - Whack an Aestroid 
 <img width="2546" height="1205" alt="image" src="https://github.com/user-attachments/assets/9576ed4e-b24a-489d-b169-148709c61e80" />
@@ -89,6 +93,7 @@ Pluto - Loneliness - Rock with me (A Virtual Pet-Rock)
 <img width="2868" height="1508" alt="image" src="https://github.com/user-attachments/assets/ef29ece8-12c7-4354-8afc-6700306ec3ba" />
 
 Jupiter - Hapiness - Make A Cosmic drink!
+<img width="1909" height="889" alt="image" src="https://github.com/user-attachments/assets/ca207ad9-b502-416c-a87c-4fa712d4ff66" />
 
 Exit - Mood Checker
 <img width="2539" height="1200" alt="image" src="https://github.com/user-attachments/assets/41c99f0a-a4be-4c10-ac0a-ddcec9ab7a43" />
