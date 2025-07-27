@@ -71,35 +71,43 @@ Feeling done with emotions? Hit the **Exit** button…
 
 
 # Interface 
-Login Page
+**Login Page**
+
 ![git](https://github.com/user-attachments/assets/d98f4e2e-4f7c-46e6-9c16-0782b38b88ff)
 
-Tarot-Card Reading Page
+**Tarot-Card Reading Page**
+
 <img width="2548" height="1194" alt="image" src="https://github.com/user-attachments/assets/02952b9f-383d-4138-b760-2c15efd8c6ef" />
 
-Venus - Love - Delulu love meter
+**Venus - Love - Delulu Love Meter**
+
 <img width="2879" height="1521" alt="image" src="https://github.com/user-attachments/assets/09db20b6-14af-4d80-9fae-b8a7d7920af2" />
 <img width="2840" height="1505" alt="image" src="https://github.com/user-attachments/assets/84811b1d-46b4-4136-a9ec-ecf662df0d02" />
 
+**Earth - Overthinking - Maze Game**
 
-Earth - Overthinking - Maze Game
 <img width="1310" height="590" alt="image" src="https://github.com/user-attachments/assets/8efed28a-588d-4a2f-92d7-53ecb52064c9" />
 
-Mars - Anger - Whack an Aestroid 
+**Mars - Anger - Whack an Aestroid**
+
 <img width="2546" height="1205" alt="image" src="https://github.com/user-attachments/assets/9576ed4e-b24a-489d-b169-148709c61e80" />
 <img width="2547" height="1205" alt="image" src="https://github.com/user-attachments/assets/35b2754d-2ec2-44eb-98d6-73ee250f9b7f" />
 
-Pluto - Loneliness - Rock with me (A Virtual Pet-Rock)
+**Pluto - Loneliness - Rock with me (A Virtual Pet-Rock)**
+
 <img width="2850" height="1493" alt="image" src="https://github.com/user-attachments/assets/fbd926ea-c12b-4e8d-909d-112c7c6c899d" />
 <img width="2868" height="1508" alt="image" src="https://github.com/user-attachments/assets/ef29ece8-12c7-4354-8afc-6700306ec3ba" />
 
-Jupiter - Hapiness - Make A Cosmic drink!
+**Jupiter - Hapiness - Make A Cosmic Drink!**
+
 <img width="1909" height="889" alt="image" src="https://github.com/user-attachments/assets/ca207ad9-b502-416c-a87c-4fa712d4ff66" />
 
-Exit - Mood Checker
+**Exit - Mood Checker**
+
 <img width="2539" height="1200" alt="image" src="https://github.com/user-attachments/assets/41c99f0a-a4be-4c10-ac0a-ddcec9ab7a43" />
 
-If user is "not" okay - Random task generator 
+**If user is "not" okay - Random task generator**
+
 <img width="2549" height="1205" alt="image" src="https://github.com/user-attachments/assets/83ad1a3f-779b-43a4-a6de-d1cacb69647b" />
 <img width="2550" height="1205" alt="image" src="https://github.com/user-attachments/assets/41df597d-9310-4dd9-b7af-bf38c9d498ef" />
 
