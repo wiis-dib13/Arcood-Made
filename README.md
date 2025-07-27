@@ -22,7 +22,7 @@ to test your patience with 5 conditions for a password because aliens hate weak 
    - Enter a **maze** of endless thoughts. Featuring brain fog, spirals, and an overthinking office.
 
 3. **🔥 Mars – Anger**
-   - Smash your frustration in a **Whrack-an-Asteroid** arcade-style game.
+   - Smash your frustration in a **Whack-an-Asteroid arcade-style game.
 
 4. **🪨 Pluto – Loneliness**
    - Interact with a **tiny rock friend** and explore silent, minimalist emotions.
