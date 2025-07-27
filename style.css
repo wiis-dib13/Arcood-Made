@@ -267,3 +267,22 @@
     background: linear-gradient(135deg, #a18cd1, #b19cd9);
     box-shadow: 0 0 16px rgba(177, 156, 217, 0.7);
 }
+#exitBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+    background: rgba(119, 40, 45, 0.6); /* translucent light pink */
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 9999;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  #exitBtn:hover {
+    transform: scale(1.1);
+    background: rgba(252, 191, 237, 0.9);
+  }
