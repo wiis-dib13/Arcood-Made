@@ -10,6 +10,8 @@ Built for the **AI vs Human Hackathon**, this project mixes emotion, creativity,
 
 Explore a surreal galaxy where each planet represents a human emotion.  
 Choose how you feel today, and let the galaxy guide you.
+### login 
+to test your patience with 5 conditions for a password because aliens hate weak passwords !
 
 ### 🪐 The 5 Emotional Planets:
 
