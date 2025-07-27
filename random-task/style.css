@@ -1,0 +1,115 @@
+body {
+  margin: 0;
+  font-family: 'Times New Roman';
+  background: url("./assets/bg.jpg") no-repeat center center fixed;
+  background-size: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.task-grid {
+  display: flex;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+
+
+#taskGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.row-bottom {
+  margin-top: 10px;
+}
+
+
+
+.container {
+  border-radius: 20px;
+  padding: 40px 20px;
+  max-width: 600px;
+  text-align: center;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: #154a61;
+  margin-bottom: 20px;
+  font-family: 'Bungee Inline', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px #fff0f5;
+}
+
+button {
+  font-family: 'Space Grotesk', sans-serif;
+  font-style: bold;
+  font-weight: 500;
+  background-color: #c84a6a;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #ffb6c1;
+}
+
+.task-box {
+  background: #f0f0f0;
+  padding: 12px;
+  margin: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+  opacity: 0;
+  transform: translateY(30px) scale(0.9);
+  animation: shootOut 0.6s ease-out forwards;
+  will-change: transform, opacity;
+  border-left: 5px solid #ea7e99;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  width: 180px;
+  text-align: center;
+  min-width: 100px;
+  flex-grow: 1; 
+  font-family: 'Space Grotesk', sans-serif;
+  color: #0f0e0e;
+}
+
+
+
+@keyframes shootOut {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
