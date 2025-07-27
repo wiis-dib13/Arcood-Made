@@ -42,8 +42,7 @@ You're the designer of your inner world.
 
 ### ❌ Exit Button – The Gage Game
 
-Feeling done with emotions? Hit the **Exit** button…  
-…but beware, it launches a **fun little dare game** to keep the human spirit alive before you go.
+Feeling done with emotions? Hit the **Exit** button but beware, it launches a **fun little dare game** to keep the human spirit alive before you go.
 
 ---
 
