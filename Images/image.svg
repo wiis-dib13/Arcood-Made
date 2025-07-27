@@ -1,0 +1,36 @@
+<svg width="1440" height="551" viewBox="0 0 1440 551" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_dn_8_110)">
+<circle cx="554" cy="517" r="108" fill="#FCFBF1"></circle>
+<ellipse cx="1006" cy="505.5" rx="167" ry="180.5" fill="#FCFBF1"></ellipse>
+<circle cx="1429" cy="409" r="370" fill="#FCFBF1"></circle>
+<ellipse cx="774.5" cy="507.5" rx="191.5" ry="178.5" fill="#FCFBF1"></ellipse>
+<ellipse cx="407" cy="551.5" rx="106" ry="107.5" fill="#FCFBF1"></ellipse>
+<circle cx="238.5" cy="534.5" r="134.5" fill="#FCFBF1"></circle>
+<circle cx="74" cy="535" r="86" fill="#FCFBF1"></circle>
+</g>
+<defs>
+<filter id="filter0_dn_8_110" x="-54.7" y="0.299999" width="1896.4" height="825.4" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
+<feOffset dy="4"></feOffset>
+<feGaussianBlur stdDeviation="21.35"></feGaussianBlur>
+<feComposite in2="hardAlpha" operator="out"></feComposite>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"></feColorMatrix>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_8_110"></feBlend>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+<feTurbulence type="fractalNoise" baseFrequency="0.76923078298568726 0.76923078298568726" stitchTiles="stitch" numOctaves="3" result="noise" seed="2126"></feTurbulence>
+<feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise"></feColorMatrix>
+<feComponentTransfer in="alphaNoise" result="coloredNoise1">
+<feFuncA type="discrete" tableValues="1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "></feFuncA>
+</feComponentTransfer>
+<feComposite operator="in" in2="shape" in="coloredNoise1" result="noise1Clipped"></feComposite>
+<feFlood flood-color="#E8E6E6" result="color1Flood"></feFlood>
+<feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1"></feComposite>
+<feMerge result="effect2_noise_8_110">
+<feMergeNode in="shape"></feMergeNode>
+<feMergeNode in="color1"></feMergeNode>
+</feMerge>
+<feBlend mode="normal" in="effect2_noise_8_110" in2="effect1_dropShadow_8_110" result="effect2_noise_8_110"></feBlend>
+</filter>
+</defs>
+</svg>
