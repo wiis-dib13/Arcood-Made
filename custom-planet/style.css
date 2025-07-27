@@ -333,7 +333,32 @@ h1{
     margin-bottom: -40px;
     text-shadow: 0 0 8px #f368e080;
 }
+.atmospher-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 0.5fr);
+  gap: 8px;
+  margin-top: 10px;
+  justify-items: center;
+}
 
+.atmospher-icon-grid img {
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.atmospher-icon-grid img:hover {
+  transform: scale(1.2);
+}
+
+
+
+
+
+
+    
+        
 
 
 
