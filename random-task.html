@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arcood Made Task Generator</title>
+  <style>
+      body {
+  margin: 0;
+  font-family: 'Times New Roman';
+  background: #fef6f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.task-grid {
+  display: flex;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.task-box {
+  background: #fff;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  border-left: 5px solid #ff69b4;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  width: 30%;
+  min-width: 100px;
+  flex-grow: 1;
+  text-align: center;
+}
+
+#taskGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.row-bottom {
+  margin-top: 10px;
+}
+
+.task-box {
+  background: #fff;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  border-left: 5px solid #ff69b4;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  width: 120px;
+  text-align: center;
+}
+
+.container {
+  background: #fff0f5;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px 20px;
+  max-width: 600px;
+  text-align: center;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: #ff69b4;
+  margin-bottom: 20px;
+}
+
+button {
+  font-family: 'Times New Roman';
+  background-color: #ffb6c1;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #ff8fab;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+  <h1>Your 5 Random Tasks</h1>
+  <button id="generateBtn">Generate Tasks</button>
+  <div id="taskGrid">
+    <div class="row" id="row1"></div>
+    <div class="row row-bottom" id="row2"></div>
+  </div>
+</div>
+
+  <script>
+      const tasks = [
+  "Draw a self-portrait using your non-dominant hand, eyes closed.",
+  "Text someone “I forgive you” — with no context.",
+  "Send your friend a photo of your elbow and say “It’s time.”",
+  "Make a fashion outfit inspired by the last emoji you used.",
+  "Write your full name like it’s your ship name with your crush.",
+  "Set your ex's name as your Wi-Fi network.",
+  "Leave a love note in a library book that says “we almost met.”",
+  "Take a selfie with the weirdest object in your room.",
+  "Set a 30-second timer and name everything that gives you hope.",
+  "Sit in total darkness and pretend to reset your brain.",
+  "Balance a spoon on your nose and whisper: “Equilibrium.”",
+  "Record yourself saying “I am not from this planet.”",
+  "Print a picture of yourself and write “Missing” at the top.",
+  "Make a tiny time capsule with trash and deep quotes.",
+  "Send your bestie a picture of your hand and say, “Still waiting to be held.”",
+  "Paint a face on a boiled egg and name it your nemesis.",
+  "Make a dish called “This Is Fine” using 3 weird snacks.",
+  "Turn a blanket into a cape. Strike 3 heroic poses.",
+  "Wear sunglasses + a bathrobe and pretend you’re famous.",
+  "Change outfits and introduce yourself as your alter ego.",
+  "Try to moonwalk while brushing your teeth.",
+  "Read a recipe like it’s a confession.",
+  "Announce every item you touch like a museum guide.",
+  "Record yourself giving a speech to your lost dreams.",
+  "Declutter your digital files."
+];
+
+document.getElementById("generateBtn").addEventListener("click", () => {
+  const row1 = document.getElementById("row1");
+const row2 = document.getElementById("row2");
+row1.innerHTML = "";
+row2.innerHTML = "";
+
+const shuffled = tasks.sort(() => 0.5 - Math.random());
+const selected = shuffled.slice(0, 5);
+
+selected.slice(0, 3).forEach(task => {
+  const div = document.createElement("div");
+  div.className = "task-box";
+  div.textContent = task;
+  row1.appendChild(div);
+});
+
+selected.slice(3).forEach(task => {
+  const div = document.createElement("div");
+  div.className = "task-box";
+  div.textContent = task;
+  row2.appendChild(div);
+});
+});
+  </script>
+</body>
+</html>
