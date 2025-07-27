@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customizable Planet Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <div class="controls">
+                <div class="control-group">
+                    <h3>Color & Gradient</h3>
+                    <div class="color-controls">
+                        <div class="color-picker">
+                            <input type="color" id="planetColor" value="#4a90e2">
+                            <span>Base Color</span>
+                        </div>
+                        <button class="btn" onclick="randomizeColor()">🎲 Randomize</button>
+                    </div>
+                </div>
+
+                <!-- Surface Texture -->
+                <div class="control-group">
+                    <h3>Surface Texture</h3>
+                    <div class="texture-grid">
+                        <div class="texture-btn" onclick="setTexture('none')" style="background: linear-gradient(45deg, #4a90e2, #357abd);"></div>
+                        <div class="texture-btn" onclick="setTexture('rocky')" style="background: radial-gradient(circle, #8b4513 30%, #a0522d 70%);"></div>
+                        <div class="texture-btn" onclick="setTexture('gas')" style="background: linear-gradient(45deg, #ff6b35, #f7931e);"></div>
+                        <div class="texture-btn" onclick="setTexture('ice')" style="background: linear-gradient(45deg, #e6f3ff, #b3d9ff);"></div>
+                        <div class="texture-btn" onclick="setTexture('lava')" style="background: radial-gradient(circle, #ff4500 40%, #8b0000 80%);"></div>
+                        <div class="texture-btn" onclick="setTexture('desert')" style="background: linear-gradient(45deg, #daa520, #cd853f);"></div>
+                    </div>
+                </div>
+
+                <!-- Size Slider -->
+                <div class="control-group">
+                    <h3>Planet Size</h3>
+                    <div class="slider-control">
+                        <input type="range" id="sizeSlider" min="200" max="400" value="300" oninput="updateSize(this.value)">
+                        <div class="slider-value" id="sizeValue">300px</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center Planet -->
+        <div class="planet-container">
+            <div class="planet-wrapper">
+                <div class="planet" id="planet">
+                    <div class="planet-surface" id="planetSurface"></div>
+                    <div class="atmosphere" id="atmosphere"></div>
+                    <div class="glow" id="glow"></div>
+                    <div class="moon" id="moon" style="width: 30px; height: 30px; top: -15px; right: -15px; display: none;"></div>
+                    <div class="moon" id="smallMoon" style="width: 18px; height: 18px; top: -9px; left: -20px; display: none; background: #a0a0a0;"></div>
+                    <div class="satellite" id="satellite" style="display: none;"></div>
+                    <div class="asteroid-belt" id="asteroidBelt" style="display: none;"></div>
+                    <div class="debris-field" id="debrisField" style="display: none;"></div>
+                    <div class="thick-atmosphere" id="thickAtmosphere"></div>
+                    <div class="aurora" id="aurora" style="display: none;"></div>
+                    <div class="storm-clouds" id="stormClouds" style="display: none;"></div>
+                    <div class="decorative-rings" id="rings">
+                        <div class="ring"></div>
+                        <div class="ring"></div>
+                        <div class="ring"></div>
+                    </div>
+                    <div class="dense-rings" id="denseRings" style="display: none;"></div>
+                    <div class="crystals" id="crystals" style="display: none;"></div>
+                    <div class="city-lights" id="cityLights" style="display: none;"></div>
+                    <div class="magnetic-field" id="magneticField" style="display: none;"></div>
+                </div>
+            </div>
+            
+            <div class="planet-name">
+                <input type="text" placeholder="Name your planet..." id="planetNameInput">
+            </div>
+
+            <div class="rotation-controls">
+                <button class="btn" onclick="setRotation('cw')">↻ Clockwise</button>
+                <button class="btn" onclick="setRotation('stop')">⏸ Stop</button>
+                <button class="btn" onclick="setRotation('ccw')">↺ Counter-CW</button>
+            </div>
+        </div>
+
+        <!-- Right Sidebar -->
+        <div class="right-sidebar">
+            <div class="controls">
+                <div class="control-group">
+                    <h3>Moons & Satellites</h3>
+                    <!-- OPTIONS HERE -->
+                    <h3>Atmosphere & Glow</h3>
+                    <!-- OPTIONS HERE -->
+                <div class="control-group">
+                    <h3> Decorative Elements</h3>
+                    <!-- OPTIONS HERE -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
