@@ -61,6 +61,8 @@ Feeling done with emotions? Hit the **Exit** button but beware, it launches a **
 - Design Tools: Figma, Canva, Freepik
 - AI Used: OpenArt (Tarot card illustrations)
 
+## 📁 Project Structure
+
 ```
  Arcood-Made/
 ├── README.md
