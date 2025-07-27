@@ -1,0 +1,199 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  text-align: center;
+  font-family: 'Rubik Moonrocks', cursive;
+  font-size: 24px;
+  text-align: center;
+  color: #000;
+  text-shadow: 2px 2px 8px #fff;
+  cursor: none;
+}
+
+#game-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background : url('./assets/mars8.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top 50%;
+}
+
+#moleTile {
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  cursor: pointer;
+}
+
+#mole {
+  position: absolute;
+  width: 230px;
+  height: auto;
+  cursor: pointer;
+  user-select: none;
+  pointer-events: none;
+}
+
+#scoreboard {
+    font-size: 40px;
+    
+}
+
+
+
+#reticle-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10000;
+  width: 40px;
+  height: 40px;
+}
+
+.reticle-corners {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: rotate 2.5s linear infinite;
+}
+
+.corner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 2px solid white;
+}
+
+.top-left {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-top: none;
+  border-right: none;
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-top: none;
+  border-left: none;
+}
+
+.reticle-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#start-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('./assets/str.jpg') no-repeat center;
+  /*color: rgb(65, 161, 65);*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: 'Audiowide', cursive;
+  text-align: center;
+}
+
+#start-box {
+  background: #2d1b3d;
+  padding: 30px 50px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px #fff5;
+  border: 2px solid #fff;
+}
+
+#start-box h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #9C2E35;
+}
+
+#start-box p {
+  font-size: 20px;
+  margin-bottom: 30px;
+  color: #ffb347;
+}
+
+#start-btn {
+  font-size: 22px;
+  padding: 10px 30px;
+  border: none;
+  background: #dc143c;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.2s ease;
+}
+
+#start-btn:hover {
+  transform: scale(1.1);
+  background-color: #ff4500;
+}
+
+#exit-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #2b0707;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-family: 'Audiowide', sans-serif;
+  text-decoration: none;
+  font-size: 14px;
+  z-index: 999;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  transition: background 0.2s ease;
+}
+
+#exit-btn:hover {
+  background: #cc0000;
+}
+
+

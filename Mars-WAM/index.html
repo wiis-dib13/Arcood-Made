@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Whack an asteroid</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="start-popup">
+    <div id="start-box">
+      <h1>Ready to destroy asteroids?</h1>
+      <p>Click "Start Game" to let out your anger</p>
+      <button id="start-btn">Start Game</button>
+    </div>
+  </div>
+
+  <div id="game-container">
+    <h1>Whack an Asteroid</h1>
+    <div id="moleTile">
+      <img id="mole" src="./assets/asteroid.png" alt="Mole">
+    </div>
+    
+    <div id="scoreboard">Score: <span id="score">0</span></div>
+  </div>
+
+  <div id="reticle-cursor">
+    <div class="reticle-corners">
+      <div class="corner top-left"></div>
+      <div class="corner top-right"></div>
+      <div class="corner bottom-left"></div>
+      <div class="corner bottom-right"></div>
+    </div>
+    <div class="reticle-dot"></div>
+  </div>
+
+  <a href="../tarot page/index.html" id="exit-btn">Exit Game</a>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
