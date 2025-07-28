@@ -4,7 +4,8 @@
 
 Built for the **AI vs HI Hackathon**, this project mixes emotion, creativity, and interactivity — the things that make us deeply human.
 
----
+# you can try it in :
+https://ornate-cannoli-600c02.netlify.app/
 
 ## 🚀 Concept
 
